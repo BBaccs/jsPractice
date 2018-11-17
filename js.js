@@ -82,7 +82,7 @@
 
 
 
-// SCORE KEEPER
+// SCORE KEEPER APP
 
 
 
@@ -98,6 +98,8 @@ let winningScore = 5;
 let h1 = document.querySelector("h1");
 let h2 = document.querySelector("h2");
 let gameover = false;
+
+
 //functions
 function startOver(){
     p1Display.textContent = 0;
@@ -112,10 +114,13 @@ function startOver(){
     gameover = false;
 }
 
+//non conditonal statements
+reset.addEventListener("click", function(){
+    startOver();
+});
+
 
 //conditionals
-
-
     p1.addEventListener("click", function(){
         if (p1Score == winningScore) {
             if (!gameover){
@@ -124,7 +129,7 @@ function startOver(){
                 p1Display.classList.add("winner"); 
                 p2Display.classList.add("loser"); 
             }
-                alert("the game is over!");
+                alert("the game is already over!");
             
         }   else {
             p1Display.textContent = p1Score++;
@@ -139,7 +144,7 @@ function startOver(){
                 p2Display.classList.add("winner"); 
                 p1Display.classList.add("loser");
              }
-             alert("the game is alreadyover!");
+             alert("the game is already over!");
          } 
              else {
             p2Display.textContent = p2Score++;
@@ -147,9 +152,7 @@ function startOver(){
       });
       
      
-     reset.addEventListener("click", function(){
-         startOver();
-     });
+     
 
     
 
