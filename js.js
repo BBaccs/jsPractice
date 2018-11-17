@@ -85,6 +85,8 @@
 // SCORE KEEPER
 
 
+
+//variables
 let playerOne = document.querySelector("#p1");
 let playerTwo = document.querySelector("#p2");
 let p1Display = document.querySelector("#p1Display");
@@ -92,31 +94,69 @@ let p2Display = document.querySelector("#p2Display");
 let reset = document.querySelector("#reset");
 let p1Score = 0;
 let p2Score = 0;
-let gameOver = winningScore;
+let winningScore = 5;
 
-
-p1.addEventListener("click", function(){
-   if (!gameOver) {
-    p1Display.textContent = p1Score++;
-   } else {
-       alert("player one is the winner!");
-   }  
-});
-
-
-
-p1.addEventListener("click", function(){
-    // p1.classList.toggle("purple");
-    p1Display.textContent = p1Score++;
-});
-
-
-p2.addEventListener("click", function(){
-    p2Display.textContent = p2Score++;
-});
-
-
-reset.addEventListener("click", function(){
+//functions
+function startOver(){
     p1Display.textContent = 0;
     p2Display.textContent = 0;
-});
+    p1Score = 0;
+    p2Score = 0;
+    p1Display.style.color = "black"; 
+    p2Display.style.color = "black"; 
+}
+
+
+//conditionals
+
+
+    p1.addEventListener("click", function(){
+        if (p1Score == winningScore) {
+         p1Display.textContent = winningScore;
+         alert("player one is the winner!");
+         p1Display.style.color = "green"; 
+         p2Display.style.color = "red"; 
+        } else if (p1Score == winningScore || p2Score == winningScore){
+            alert("the game is alreadyover!");
+        }  else {
+            p1Display.textContent = p1Score++;
+        }
+     });
+     
+     p2.addEventListener("click", function(){
+         if (p2Score == winningScore) {
+          p2Display.textContent = winningScore;
+          alert("player two is the winner!");
+          p2Display.style.color = "green"; 
+          p1Display.style.color = "red"; 
+         } else if (p1Score == winningScore || p2Score == winningScore){
+            alert("the game is alreadyover!");
+        }  else {
+            p2Display.textContent = p2Score++;
+        } 
+      });
+      
+     
+     reset.addEventListener("click", function(){
+         startOver();
+     });
+
+    
+
+
+
+// p1.addEventListener("click", function(){
+//     // p1.classList.toggle("purple");
+//     p1Display.textContent = p1Score++;
+// });
+
+
+// p2.addEventListener("click", function(){
+//     p2Display.textContent = p2Score++;
+// });
+
+
+// reset.addEventListener("click", function(){
+//     p1Display.textContent = 0;
+//     p2Display.textContent = 0;
+// });
