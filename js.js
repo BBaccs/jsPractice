@@ -98,6 +98,7 @@ let winningScore = 5;
 let h1 = document.querySelector("h1");
 let h2 = document.querySelector("h2");
 let gameover = false;
+let startButton = document.querySelector(".startButton");
 
 
 //functions
@@ -121,35 +122,49 @@ reset.addEventListener("click", function(){
 
 
 //conditionals
-    p1.addEventListener("click", function(){
-        if (p1Score == winningScore) {
-            if (!gameover){
-                p1Display.textContent = p1Score;
-                h1.textContent = "Player one wins!"
-                p1Display.classList.add("winner"); 
-                p2Display.classList.add("loser"); 
-            }
+   
+
+
+
+startButton.addEventListener("click", function(){
+    if (!gameover){
+        p1.addEventListener("click", function(){
+            if (p1Score == winningScore) {
+                if (!gameover){
+                    p1Display.textContent = p1Score;
+                    h1.textContent = "Player one wins!"
+                    p1Display.classList.add("winner"); 
+                    p2Display.classList.add("loser");
+                    gameover = true; 
+                }
+                
                 alert("the game is already over!");
-            
-        }   else {
-            p1Display.textContent = p1Score++;
-        }
-     });
-     
-     p2.addEventListener("click", function(){
-         if (p2Score == winningScore) {
-             if (!gameover) {
-                p2Display.textContent = p2Score;
-                h1.textContent = "Player two wins!"; 
-                p2Display.classList.add("winner"); 
-                p1Display.classList.add("loser");
-             }
-             alert("the game is already over!");
-         } 
-             else {
-            p2Display.textContent = p2Score++;
-        } 
-      });
+                
+            }   else {
+                p1Display.textContent = p1Score++;
+            }
+         });
+         
+         p2.addEventListener("click", function(){
+             if (p2Score == winningScore) {
+                 if (!gameover) {
+                    p2Display.textContent = p2Score;
+                    h1.textContent = "Player two wins!"; 
+                    p2Display.classList.add("winner"); 
+                    p1Display.classList.add("loser");
+                    gameover = true;
+                 }
+                 alert("the game is already over!");
+             } 
+                 else {
+                p2Display.textContent = p2Score++;
+            } 
+          });
+    } else {
+        alert("it's over man...");
+    }
+});
+      
       
      
      
