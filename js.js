@@ -102,8 +102,10 @@ function startOver(){
     p2Display.textContent = 0;
     p1Score = 0;
     p2Score = 0;
-    p1Display.style.color = "black"; 
-    p2Display.style.color = "black"; 
+    p2Display.classList.remove("winner"); 
+    p1Display.classList.remove("loser")
+    p2Display.classList.remove("loser"); 
+    p1Display.classList.remove("winner")
 }
 
 
@@ -112,10 +114,10 @@ function startOver(){
 
     p1.addEventListener("click", function(){
         if (p1Score == winningScore) {
-         p1Display.textContent = winningScore;
+         p1Display.textContent = p1Score;
          alert("player one is the winner!");
-         p1Display.style.color = "green"; 
-         p2Display.style.color = "red"; 
+         p1Display.classList.add("winner"); 
+         p2Display.classList.add("loser"); 
         } else if (p1Score == winningScore || p2Score == winningScore){
             alert("the game is alreadyover!");
         }  else {
@@ -125,10 +127,10 @@ function startOver(){
      
      p2.addEventListener("click", function(){
          if (p2Score == winningScore) {
-          p2Display.textContent = winningScore;
-          alert("player two is the winner!");
-          p2Display.style.color = "green"; 
-          p1Display.style.color = "red"; 
+          p2Display.textContent = p2Score;
+          alert("player two is the winner!"); 
+            p2Display.classList.add("winner"); 
+            p1Display.classList.add("loser")
          } else if (p1Score == winningScore || p2Score == winningScore){
             alert("the game is alreadyover!");
         }  else {
