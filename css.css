@@ -1,3 +1,11 @@
-.purple {
-   font-size: 50px;
+* {
+    text-align: center;
+}
+
+.winner {
+    color: green;
+}
+
+.loser {
+    color: red;
 }
